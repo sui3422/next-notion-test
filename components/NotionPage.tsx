@@ -1,7 +1,6 @@
 import * as React from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-// import Image from 'next/image'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -14,7 +13,6 @@ import { Loading } from './Loading';
 
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then(async (m) => {
-    // additional prism syntaxes
     await Promise.all([
       import('prismjs/components/prism-markup-templating.js'),
       import('prismjs/components/prism-markup.js'),
@@ -98,9 +96,7 @@ export const NotionPage = ({
   }
 
   const title = getPageTitle(recordMap);
-  console.log(title, recordMap);
 
-  // useful for debugging from the dev console
   if (typeof window !== 'undefined') {
     const keys = Object.keys(recordMap?.block || {});
     const block = recordMap?.block?.[keys[0]]?.value;
